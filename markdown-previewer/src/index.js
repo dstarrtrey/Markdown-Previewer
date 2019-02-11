@@ -37,8 +37,9 @@ const markdownDefault = [
   "> *Italic*, **Bold**, or _**both**_ as ~~means of world domination~~ **block quotes**!",
   "### Go Ahead, Try it Yourself!",
   "Delete this useless text and write your own!",
-  "![Thumbs Up](https://cdn.pixabay.com/photo/2013/07/12/13/50/smiley-147407_960_720.png)"
+  "![Thumbs Up](https://rfclipart.com/image/big/b9-13-80/thumbs-up-Download-Royalty-free-Vector-File-EPS-3024.jpg)"
 ].join("  \n");
+//=======================================================================================
 class Previewer extends React.Component {
   constructor(props) {
     super(props);
@@ -46,22 +47,23 @@ class Previewer extends React.Component {
       markdown: markdownDefault
     }
     this.handleChange = this.handleChange.bind(this);
-    this.initialize = this.initialize.bind(this);
+  }
+  componentDidMount() {
+    document.getElementById("preview").innerHTML = marked(this.state.markdown);
   }
   handleChange(i){
     console.log(marked(i.target.value));
     this.setState({markdown: i.target.value});
     document.getElementById("preview").innerHTML = marked(i.target.value);
   }
-  initialize() {
-    console.log(markdownDefault);
-    document.getElementById("preview").innerHTML = markdownDefault;
-  }
   render() {
     return (
-      <div className="all">
-        <textarea id="editor" value={this.state.markdown} onChange={this.handleChange} className="editor"/>
-        <div id="preview" className="preview" dangerouslySetInnerHTML={{ __html: marked(this.state.markdown)}}></div>
+      <div>
+        <h1 className="title">Live Markdown Previewer</h1>
+        <div className="all">
+          <textarea id="editor" value={this.state.markdown} onChange={this.handleChange} className="editor child"/>
+          <div id="preview" className="preview child" />
+        </div>
       </div>
     );
   }
