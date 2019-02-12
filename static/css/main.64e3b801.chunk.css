@@ -1,0 +1,2 @@
+body{width:100%;margin:0;height:100vh;background-color:#000}.title{text-align:center;margin-top:0;padding-top:10px;font-size:50px;color:#fff}.all{display:grid;grid-template-columns:1fr 1fr;grid-column-gap:5vw;margin:0 5vw;padding-top:0}.child{height:80vh;overflow-x:hidden;overflow-y:scroll;border:3px solid #a3a3a3;border-radius:10px}.editor{resize:none;font-size:1.7vh}.preview{background-color:#fff;padding-left:10px}img{width:50%;height:auto}
+/*# sourceMappingURL=main.64e3b801.chunk.css.map */
